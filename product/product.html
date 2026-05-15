@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SOOMIN 全系列商品 — 潔顏、化妝水、精華液、乳霜。純淨配方，溫和有效。">
+  <title>護膚系列 — SOOMIN</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/product.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <a href="../index/index.html" class="logo">
+        <img src="../assets/logo/logo.png" alt="SOOMIN">
+        <span>SOOMIN</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="開啟選單" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu">
+        <a href="../index/index.html">首頁</a>
+        <a href="../about/about.html">品牌故事</a>
+        <div class="nav-dropdown">
+          <a href="../Product/product.html" class="nav-dropdown-trigger active">護膚系列</a>
+          <div class="nav-dropdown-menu">
+            <a href="../Product/product.html">全系列商品</a>
+            <a href="../Product/product.html?category=cleanser">潔顏 / Cleanser</a>
+            <a href="../Product/product.html?category=toner">化妝水 / Toner</a>
+            <a href="../Product/product.html?category=serum">精華液 / Serum</a>
+            <a href="../Product/product.html?category=cream">乳霜 / Cream</a>
+          </div>
+        </div>
+        <a href="#footer">聯絡我們</a>
+      </nav>
+
+      <div class="nav-icons">
+        <a href="#">搜尋</a>
+        <a href="#">會員</a>
+        <a href="#">購物袋<span class="cart-count">2</span></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-inner">
+      <a href="../index/index.html" class="drawer-link">首頁</a>
+      <a href="../about/about.html" class="drawer-link">品牌故事</a>
+      <div class="drawer-dropdown">
+        <button class="drawer-dropdown-toggle active" id="drawerDropdownToggle" type="button">
+          護膚系列 <span class="drawer-arrow">⌄</span>
+        </button>
+        <div class="drawer-submenu active" id="drawerSubmenu">
+          <a href="../Product/product.html" class="drawer-sublink">全系列商品</a>
+          <a href="../Product/product.html?category=cleanser" class="drawer-sublink">潔顏</a>
+          <a href="../Product/product.html?category=toner" class="drawer-sublink">化妝水</a>
+          <a href="../Product/product.html?category=serum" class="drawer-sublink">精華液</a>
+          <a href="../Product/product.html?category=cream" class="drawer-sublink">乳霜</a>
+        </div>
+      </div>
+      <a href="#footer" class="drawer-link">聯絡我們</a>
+      <div class="mobile-drawer-icons">
+        <a href="#">搜尋</a>
+        <a href="#">會員</a>
+        <a href="#">購物袋 (2)</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="product-list-page">
+
+    <section class="product-list-hero">
+      <div class="product-list-hero-content">
+        <span class="product-list-kicker">All Products · 全系列商品</span>
+        <h1>
+          每一支，<br>
+          都為你的 <span class="italic">肌膚</span><br>
+          而存在。
+        </h1>
+        <p class="product-list-hero-sub">Every drop, made for your skin.</p>
+        <p>
+          12 支純淨配方，覆蓋潔顏、保濕、修護的每一步。<br>
+          找到屬於你肌膚的那一支。
+        </p>
+      </div>
+    </section>
+
+    <section class="product-list-toolbar">
+      <div class="product-list-categories">
+        <button class="category-chip active" type="button" data-category="all">全部 · All</button>
+        <button class="category-chip" type="button" data-category="cleanser">潔顏 · Cleanser</button>
+        <button class="category-chip" type="button" data-category="toner">化妝水 · Toner</button>
+        <button class="category-chip" type="button" data-category="serum">精華液 · Serum</button>
+        <button class="category-chip" type="button" data-category="cream">乳霜 · Cream</button>
+      </div>
+      <div class="product-list-meta"><span>共 8 支商品</span></div>
+    </section>
+
+    <section class="product-list-section">
+      <div class="product-list-grid">
+
+        <a href="../product-detail/product-detail.html" class="list-product-card" data-category="serum">
+          <div class="list-product-image">
+            <span class="list-product-num">№ 042</span>
+            <span class="list-product-badge">Best</span>
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="水光透亮精華">
+            <button class="list-product-fav" type="button" aria-label="收藏">♡</button>
+          </div>
+          <div class="list-product-body">
+            <span class="list-product-tag">Serum · 精華液</span>
+            <h3>Glow Essence</h3>
+            <p class="list-product-name-zh">水光透亮精華</p>
+            <div class="list-product-meta">
+              <span class="list-product-rating">★★★★★ <span class="num">4.9</span></span>
+              <span class="list-product-volume">30ml</span>
+            </div>
+            <div class="list-product-footer">
+              <span class="list-product-price"><span class="currency">NT$</span>1,280</span>
+              <span class="list-product-link">View</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../product-detail/product-detail.html" class="list-product-card" data-category="toner">
+          <div class="list-product-image">
+            <span class="list-product-num">№ 043</span>
+            <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80" alt="舒緩修護化妝水">
+            <button class="list-product-fav" type="button" aria-label="收藏">♡</button>
+          </div>
+          <div class="list-product-body">
+            <span class="list-product-tag">Toner · 化妝水</span>
+            <h3>Calming Toner</h3>
+            <p class="list-product-name-zh">舒緩修護化妝水</p>
+            <div class="list-product-meta">
+              <span class="list-product-rating">★★★★★ <span class="num">4.8</span></span>
+              <span class="list-product-volume">150ml</span>
+            </div>
+            <div class="list-product-footer">
+              <span class="list-product-price"><span class="currency">NT$</span>880</span>
+              <span class="list-product-link">View</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../product-detail/product-detail.html" class="list-product-card" data-category="cream">
+          <div class="list-product-image">
+            <span class="list-product-num">№ 044</span>
+            <span class="list-product-badge">New</span>
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=600&q=80" alt="極潤鎖水乳霜">
+            <button class="list-product-fav" type="button" aria-label="收藏">♡</button>
+          </div>
+          <div class="list-product-body">
+            <span class="list-product-tag">Cream · 乳霜</span>
+            <h3>Hydra Cream</h3>
+            <p class="list-product-name-zh">極潤鎖水乳霜</p>
+            <div class="list-product-meta">
+              <span class="list-product-rating">★★★★★ <span class="num">4.9</span></span>
+              <span class="list-product-volume">50ml</span>
+            </div>
+            <div class="list-product-footer">
+              <span class="list-product-price"><span class="currency">NT$</span>1,580</span>
+              <span class="list-product-link">View</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../product-detail/product-detail.html" class="list-product-card" data-category="cleanser">
+          <div class="list-product-image">
+            <span class="list-product-num">№ 045</span>
+            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=600&q=80" alt="溫和卸妝潔顏油">
+            <button class="list-product-fav" type="button" aria-label="收藏">♡</button>
+          </div>
+          <div class="list-product-body">
+            <span class="list-product-tag">Cleanser · 潔顏</span>
+            <h3>Gentle Cleanser</h3>
+            <p class="list-product-name-zh">溫和卸妝潔顏油</p>
+            <div class="list-product-meta">
+              <span class="list-product-rating">★★★★★ <span class="num">4.7</span></span>
+              <span class="list-product-volume">200ml</span>
+            </div>
+            <div class="list-product-footer">
+              <span class="list-product-price"><span class="currency">NT$</span>980</span>
+              <span class="list-product-link">View</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../product-detail/product-detail.html" class="list-product-card" data-category="serum">
+          <div class="list-product-image">
+            <span class="list-product-num">№ 046</span>
+            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=600&q=80" alt="抗皺修護精華">
+            <button class="list-product-fav" type="button" aria-label="收藏">♡</button>
+          </div>
+          <div class="list-product-body">
+            <span class="list-product-tag">Serum · 精華液</span>
+            <h3>Repair Serum</h3>
+            <p class="list-product-name-zh">抗皺修護精華</p>
+            <div class="list-product-meta">
+              <span class="list-product-rating">★★★★★ <span class="num">4.8</span></span>
+              <span class="list-product-volume">30ml</span>
+            </div>
+            <div class="list-product-footer">
+              <span class="list-product-price"><span class="currency">NT$</span>1,480</span>
+              <span class="list-product-link">View</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../product-detail/product-detail.html" class="list-product-card" data-category="cleanser">
+          <div class="list-product-image">
+            <span class="list-product-num">№ 047</span>
+            <img src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?auto=format&fit=crop&w=600&q=80" alt="氨基酸潔顏慕斯">
+            <button class="list-product-fav" type="button" aria-label="收藏">♡</button>
+          </div>
+          <div class="list-product-body">
+            <span class="list-product-tag">Cleanser · 潔顏</span>
+            <h3>Amino Foam</h3>
+            <p class="list-product-name-zh">氨基酸潔顏慕斯</p>
+            <div class="list-product-meta">
+              <span class="list-product-rating">★★★★★ <span class="num">4.7</span></span>
+              <span class="list-product-volume">150ml</span>
+            </div>
+            <div class="list-product-footer">
+              <span class="list-product-price"><span class="currency">NT$</span>780</span>
+              <span class="list-product-link">View</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../product-detail/product-detail.html" class="list-product-card" data-category="toner">
+          <div class="list-product-image">
+            <span class="list-product-num">№ 048</span>
+            <span class="list-product-badge">New</span>
+            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80" alt="煥膚柔嫩化妝水">
+            <button class="list-product-fav" type="button" aria-label="收藏">♡</button>
+          </div>
+          <div class="list-product-body">
+            <span class="list-product-tag">Toner · 化妝水</span>
+            <h3>Renew Toner</h3>
+            <p class="list-product-name-zh">煥膚柔嫩化妝水</p>
+            <div class="list-product-meta">
+              <span class="list-product-rating">★★★★★ <span class="num">4.8</span></span>
+              <span class="list-product-volume">150ml</span>
+            </div>
+            <div class="list-product-footer">
+              <span class="list-product-price"><span class="currency">NT$</span>980</span>
+              <span class="list-product-link">View</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../product-detail/product-detail.html" class="list-product-card" data-category="cream">
+          <div class="list-product-image">
+            <span class="list-product-num">№ 049</span>
+            <img src="https://images.unsplash.com/photo-1631730486577-5b9c8de0e9b9?auto=format&fit=crop&w=600&q=80" alt="眼周修護霜">
+            <button class="list-product-fav" type="button" aria-label="收藏">♡</button>
+          </div>
+          <div class="list-product-body">
+            <span class="list-product-tag">Cream · 乳霜</span>
+            <h3>Eye Cream</h3>
+            <p class="list-product-name-zh">眼周修護霜</p>
+            <div class="list-product-meta">
+              <span class="list-product-rating">★★★★★ <span class="num">4.9</span></span>
+              <span class="list-product-volume">20ml</span>
+            </div>
+            <div class="list-product-footer">
+              <span class="list-product-price"><span class="currency">NT$</span>1,280</span>
+              <span class="list-product-link">View</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer-main">
+    <div class="footer-top-container">
+      <div class="footer-brand">
+        <a href="../index/index.html" class="logo">
+          <img src="../assets/logo/logo02.png" alt="SOOMIN">
+          <span>SOOMIN</span>
+        </a>
+        <p>
+          來自首爾的純淨護膚哲學。<br>
+          不堆疊、不負擔，<br>
+          讓肌膚回到最初的樣子。
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>快速連結</h4>
+        <ul>
+            <li><a href="../index/index.html">首頁</a></li>
+            <li><a href="../about/about.html">品牌故事</a></li>
+            <li><a href="../product/product.html">所有選品</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>條款與政策</h4>
+        <ul>
+          <li><a href="#">隱私權政策</a></li>
+          <li><a href="#">服務條款</a></li>
+          <li><a href="#">退換貨政策</a></li>
+          <li><a href="#">免責聲明</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>追蹤我們</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Line</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>客服</h4>
+        <p>care@soomin.kr</p>
+        <p>週一至週五 / 10:00 - 19:00</p>
+        <p>免運門檻 NT$ 1,500</p>
+      </div>
+    </div>
+
+    <div class="footer-big-text">soomin.</div>
+
+    <div class="footer-bottom">
+      <p>© 2026 SOOMIN · All Rights Reserved.</p>
+      
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerDropdownToggle = document.getElementById('drawerDropdownToggle');
+    const drawerSubmenu = document.getElementById('drawerSubmenu');
+
+    if (menuToggle && mobileDrawer) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mobileDrawer.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
+      });
+    }
+
+    if (drawerDropdownToggle && drawerSubmenu) {
+      drawerDropdownToggle.addEventListener('click', () => {
+        drawerDropdownToggle.classList.toggle('active');
+        drawerSubmenu.classList.toggle('active');
+      });
+    }
+
+    // 收藏按鈕
+    document.querySelectorAll('.list-product-fav').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
+        btn.style.color = btn.textContent === '♥' ? 'var(--accent)' : '';
+      });
+    });
+
+    // 分類過濾
+    const categoryButtons = document.querySelectorAll('.category-chip');
+    const productCards    = document.querySelectorAll('.list-product-card');
+    const productCount    = document.querySelector('.product-list-meta span');
+
+    function filterProducts(category, updateUrl = true) {
+      const cur = category && category.trim() ? category : 'all';
+      let count = 0;
+
+      productCards.forEach(card => {
+        const show = cur === 'all' || card.dataset.category === cur;
+        card.classList.toggle('is-hidden', !show);
+        card.style.removeProperty('display');
+        if (show) count++;
+      });
+
+      if (productCount) productCount.textContent = `共 ${count} 支商品`;
+
+      categoryButtons.forEach(btn =>
+        btn.classList.toggle('active', btn.dataset.category === cur)
+      );
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('category', cur);
+        window.history.replaceState({}, '', url);
+      }
+    }
+
+    categoryButtons.forEach(btn =>
+      btn.addEventListener('click', () => {
+        filterProducts(btn.dataset.category);
+
+        btn.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+          block: 'nearest'
+        });
+      })
+    );
+
+    const init = new URLSearchParams(window.location.search).get('category') || 'all';
+    filterProducts(init, false);
+  </script>
+</body>
+</html>
