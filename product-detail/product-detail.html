@@ -70,25 +70,32 @@
     </div>
   </div>
 
-  <main class="main-content">
+<main class="main-content">
     <div class="product-wrapper">
 
-      <!-- Gallery -->
       <div class="product-gallery">
         <div class="main-image">
           <span class="main-image-tag">№ 042 · Best Seller</span>
           <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80" alt="水光透亮精華 主圖" id="mainImg">
         </div>
-        <div class="thumbnail-list">
-          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=200&q=80" alt="縮圖 1" class="thumbnail active" data-src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80">
-          <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=200&q=80" alt="縮圖 2" class="thumbnail" data-src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=80">
-          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=80" alt="縮圖 3" class="thumbnail" data-src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80">
-          <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=200&q=80" alt="縮圖 4" class="thumbnail" data-src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=900&q=80">
+        
+        <div class="thumbnail-carousel-wrapper">
+          <button class="thumb-carousel-btn thumb-btn-prev" id="thumbPrev" type="button" aria-label="上一組縮圖">‹</button>
+          
+          <div class="thumbnail-slider-container">
+            <div class="thumbnail-track" id="thumbTrack">
+              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=200&q=80" alt="縮圖 1" class="thumbnail active" data-src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80">
+              <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=200&q=80" alt="縮圖 2" class="thumbnail" data-src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=80">
+              <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=80" alt="縮圖 3" class="thumbnail" data-src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80">
+              <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=200&q=80" alt="縮圖 4" class="thumbnail" data-src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=900&q=80">
+              <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=200&q=80" alt="縮圖 5" class="thumbnail" data-src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=900&q=80">
+              <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=200&q=80" alt="縮圖 6" class="thumbnail" data-src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=80">
+            </div>
+          </div>
+          
+          <button class="thumb-carousel-btn thumb-btn-next" id="thumbNext" type="button" aria-label="下一組縮圖">›</button>
         </div>
-      </div>
-
-      <!-- 商品資訊 -->
-      <div class="product-info">
+      </div> <div class="product-info">
         <span class="kicker">Serum · 精華液 / SM-042-S</span>
         <h1 class="product-title">
           Glow <span class="italic">Essence.</span>
@@ -113,7 +120,6 @@
           <p>質地清爽不黏膩，敏感肌也能安心使用。28 天臨床實證，肌膚明亮度顯著提升。</p>
         </div>
 
-        <!-- 關鍵成分 -->
         <div class="product-ingredients">
           <p class="product-ingredients-title">Key Ingredients · 關鍵成分</p>
           <div class="ingredients-list">
@@ -135,7 +141,6 @@
           </div>
         </div>
 
-        <!-- 規格 -->
         <ul class="product-specs">
           <li data-label="Volume · 容量"><span>30ml / 1.0 fl oz</span></li>
           <li data-label="Skin Type · 適用肌膚"><span>所有膚質 · 敏感肌可</span></li>
@@ -144,14 +149,33 @@
           <li data-label="Shelf Life · 期限"><span>未開封 36 個月 · 開封後 12 個月</span></li>
         </ul>
 
-        <!-- 數量 -->
         <div class="quantity-selector">
           <button class="qty-btn" id="qtyMinus" type="button">−</button>
           <span class="qty-number" id="qtyNum">1</span>
           <button class="qty-btn" id="qtyPlus" type="button">+</button>
         </div>
 
-        <!-- 加入購物袋 -->
+        <div class="product-variants-section">
+          <p class="variants-title">Select Size · 選擇容量</p>
+          <div class="variants-options">
+            <button type="button" class="variant-chip active" data-variant="30ml" data-price="1,280">
+              30ml 
+            </button>
+            <button type="button" class="variant-chip" data-variant="50ml" data-price="1,850">
+              50ml
+            </button>
+            <button type="button" class="variant-chip" data-variant="100ml" data-price="3,200" disabled>
+              100ml (已完售)
+            </button>
+          </div>
+        </div>
+
+        <div class="quantity-selector">
+          <button class="qty-btn" id="qtyMinus" type="button">−</button>
+          <span class="qty-number" id="qtyNum">1</span>
+          <button class="qty-btn" id="qtyPlus" type="button">+</button>
+        </div>
+
         <div class="product-actions">
           <button class="add-to-cart-btn" type="button">
             加入購物袋 · Add To Bag
@@ -159,15 +183,14 @@
           <button class="btn-wishlist" type="button" aria-label="收藏">♡</button>
         </div>
 
-        <!-- 備註 -->
         <p class="product-note">
           <span class="note-label">Free Gift</span>
           消費滿 NT$ 1,500 贈隨身瓶 5ml。<br>
           <span class="note-label">Return</span>
           未拆封商品 7 日內無條件退換。
         </p>
-      </div>
-    </div>
+      </div> 
+    </div> 
   </main>
 
   <!-- How To Use -->
@@ -386,13 +409,16 @@
       </div>
     </div>
 
-    <div class="footer-big-text">soomin.</div>
+    <div class="footer-big-text">soomin.</div><!-- 浮水印 -->
 
     <div class="footer-bottom">
       <p>© 2026 SOOMIN · All Rights Reserved.</p>
       
 
   <script>
+    // =========================================
+    // 1. 行動裝置側邊選單與下拉選單
+    // =========================================
     const menuToggle = document.getElementById('menuToggle');
     const mobileDrawer = document.getElementById('mobileDrawer');
     const drawerDropdownToggle = document.getElementById('drawerDropdownToggle');
@@ -413,10 +439,35 @@
       });
     }
 
-    // 縮圖切換
+    // =========================================
+    // 2. 下方縮圖滑軌輪播與主圖連動 (修正後功能)
+    // =========================================
     const thumbnails = document.querySelectorAll('.thumbnail');
-    const mainImg    = document.getElementById('mainImg');
+    const mainImg = document.getElementById('mainImg');
+    const thumbTrack = document.getElementById('thumbTrack');
+    const thumbPrev = document.getElementById('thumbPrev');
+    const thumbNext = document.getElementById('thumbNext');
+    
+    let currentThumbIndex = 0; // 當前滑軌最左邊顯示的縮圖索引
+    const thumbsPerView = 3;   // 畫面上固定看見 3 張
+    const maxThumbIndex = Math.max(0, thumbnails.length - thumbsPerView); // 最大可滾動步數
 
+    // 更新縮圖滑軌位置與按鈕狀態
+    function updateThumbCarousel() {
+      if (!thumbnails.length || !thumbTrack) return;
+      
+      const gap = 12; // 對應 CSS 中的 gap
+      const width = thumbnails[0].offsetWidth;
+      
+      // 計算滑軌位移
+      thumbTrack.style.transform = `translateX(-${currentThumbIndex * (width + gap)}px)`;
+      
+      // 控制箭頭的停用狀態 (第一頁時左箭頭停用，最後一頁時右箭頭停用)
+      if (thumbPrev) thumbPrev.disabled = (currentThumbIndex === 0);
+      if (thumbNext) thumbNext.disabled = (currentThumbIndex === maxThumbIndex);
+    }
+
+    // 監聽點擊小縮圖 -> 更換主圖 (保留原有高亮切換)
     thumbnails.forEach(thumb => {
       thumb.addEventListener('click', () => {
         mainImg.src = thumb.dataset.src;
@@ -425,18 +476,59 @@
       });
     });
 
-    // 數量
+    // 點擊縮圖右箭頭 -> 往後滾動一張
+    if (thumbNext) {
+      thumbNext.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentThumbIndex < maxThumbIndex) {
+          currentThumbIndex++;
+          updateThumbCarousel();
+        }
+      });
+    }
+
+    // 點擊縮圖左箭頭 -> 往前滾動一張
+    if (thumbPrev) {
+      thumbPrev.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (currentThumbIndex > 0) {
+          currentThumbIndex--;
+          updateThumbCarousel();
+        }
+      });
+    }
+
+    // 初始化縮圖按鈕狀態
+    updateThumbCarousel();
+
+    // 視窗縮放時重新計算寬度，確保對齊
+    window.addEventListener('resize', () => {
+      updateThumbCarousel();
+    });
+
+    // =========================================
+    // 3. 商品購買數量加減計數器
+    // =========================================
     let qty = 1;
     const qtyNum = document.getElementById('qtyNum');
+    const qtyMinus = document.getElementById('qtyMinus');
+    const qtyPlus = document.getElementById('qtyPlus');
 
-    document.getElementById('qtyMinus').addEventListener('click', () => {
-      if (qty > 1) { qty--; qtyNum.textContent = qty; }
-    });
-    document.getElementById('qtyPlus').addEventListener('click', () => {
-      qty++; qtyNum.textContent = qty;
-    });
+    if (qtyMinus && qtyNum) {
+      qtyMinus.addEventListener('click', () => {
+        if (qty > 1) { qty--; qtyNum.textContent = qty; }
+      });
+    }
+    
+    if (qtyPlus && qtyNum) {
+      qtyPlus.addEventListener('click', () => {
+        qty++; qtyNum.textContent = qty;
+      });
+    }
 
-    // 願望清單
+    // =========================================
+    // 4. 單品願望清單收藏按鈕 (大按鈕)
+    // =========================================
     const wishBtn = document.querySelector('.btn-wishlist');
     if (wishBtn) {
       wishBtn.addEventListener('click', () => {
@@ -445,7 +537,9 @@
       });
     }
 
-    // 商品卡內收藏（推薦區）
+    // =========================================
+    // 5. 推薦商品卡片內小愛心收藏按鈕
+    // =========================================
     document.querySelectorAll('.list-product-fav').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -455,41 +549,49 @@
       });
     });
 
-    // 推薦輪播
-    const slider  = document.getElementById('recommendSlider');
-    const track   = slider.querySelector('.recommend-track');
-    const prevBtn = document.querySelector('.carousel-btn-prev');
-    const nextBtn = document.querySelector('.carousel-btn-next');
-    const cards   = track.querySelectorAll('.list-product-card');
-    let currentIndex = 0;
+    // =========================================
+    // 6. 底部「你可能也會喜歡」推薦商品橫向輪播
+    // =========================================
+    const slider = document.getElementById('recommendSlider');
+    if (slider) {
+      const track = slider.querySelector('.recommend-track');
+      const prevBtn = document.querySelector('.carousel-btn-prev');
+      const nextBtn = document.querySelector('.carousel-btn-next');
+      const cards = track.querySelectorAll('.list-product-card');
+      let currentIndex = 0;
 
-    function getPerView() {
-      return window.innerWidth <= 640 ? 1 : window.innerWidth <= 960 ? 2 : 3;
+      function getPerView() {
+        return window.innerWidth <= 640 ? 1 : window.innerWidth <= 960 ? 2 : 3;
+      }
+
+      function getMaxIndex() {
+        return Math.max(0, cards.length - getPerView());
+      }
+
+      function updateCarousel() {
+        if (!cards.length) return;
+        const gap = 16;
+        const width = cards[0].offsetWidth;
+        track.style.transform = `translateX(-${currentIndex * (width + gap)}px)`;
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentIndex < getMaxIndex()) { currentIndex++; updateCarousel(); }
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        currentIndex = Math.min(currentIndex, getMaxIndex());
+        updateCarousel();
+      });
     }
-
-    function getMaxIndex() {
-      return Math.max(0, cards.length - getPerView());
-    }
-
-    function updateCarousel() {
-      if (!cards.length) return;
-      const gap   = 16;
-      const width = cards[0].offsetWidth;
-      track.style.transform = `translateX(-${currentIndex * (width + gap)}px)`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < getMaxIndex()) { currentIndex++; updateCarousel(); }
-    });
-
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) { currentIndex--; updateCarousel(); }
-    });
-
-    window.addEventListener('resize', () => {
-      currentIndex = Math.min(currentIndex, getMaxIndex());
-      updateCarousel();
-    });
   </script>
 </body>
 </html>

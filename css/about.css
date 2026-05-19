@@ -9,7 +9,7 @@
 .process-section { background: var(--bg-page); }
 .about-hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--border-line); }
 .about-hero::before {
-  content: "2024";
+  content: "2024";/* 品牌故事區背景浮水印文字，可自由修改 */
   position: absolute;
   right: -38px;
   bottom: -58px;

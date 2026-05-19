@@ -9,7 +9,7 @@
   border-bottom: 1px solid var(--border-line);
 }
 .hero::before {
-  content: "soomin";
+  content: "soomin";/* 首頁景浮水印文字，可自由修改 */
   position: absolute;
   bottom: -42px;
   left: -24px;
