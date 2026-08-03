@@ -74,8 +74,8 @@
     <div class="product-wrapper">
 
       <div class="product-gallery">
-        <div class="main-image">
-          <span class="main-image-tag">№ 042 · Best Seller</span>
+        <div class="main-image" id="mainImageButton" role="button" tabindex="0" aria-label="放大商品圖片">
+          
           <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80" alt="水光透亮精華 主圖" id="mainImg">
         </div>
         
@@ -170,12 +170,6 @@
           </div>
         </div>
 
-        <div class="quantity-selector">
-          <button class="qty-btn" id="qtyMinus" type="button">−</button>
-          <span class="qty-number" id="qtyNum">1</span>
-          <button class="qty-btn" id="qtyPlus" type="button">+</button>
-        </div>
-
         <div class="product-actions">
           <button class="add-to-cart-btn" type="button">
             加入購物袋 · Add To Bag
@@ -256,11 +250,6 @@
             <div class="list-product-body">
               <span class="list-product-tag">Toner · 化妝水</span>
               <h3>Calming Toner</h3>
-              <p class="list-product-name-zh">舒緩修護化妝水</p>
-              <div class="list-product-meta">
-                <span class="list-product-rating">★★★★★ <span class="num">4.8</span></span>
-                <span class="list-product-volume">150ml</span>
-              </div>
               <div class="list-product-footer">
                 <span class="list-product-price"><span class="currency">NT$</span>880</span>
                 <span class="list-product-link">View</span>
@@ -278,11 +267,6 @@
             <div class="list-product-body">
               <span class="list-product-tag">Cream · 乳霜</span>
               <h3>Hydra Cream</h3>
-              <p class="list-product-name-zh">極潤鎖水乳霜</p>
-              <div class="list-product-meta">
-                <span class="list-product-rating">★★★★★ <span class="num">4.9</span></span>
-                <span class="list-product-volume">50ml</span>
-              </div>
               <div class="list-product-footer">
                 <span class="list-product-price"><span class="currency">NT$</span>1,580</span>
                 <span class="list-product-link">View</span>
@@ -299,11 +283,6 @@
             <div class="list-product-body">
               <span class="list-product-tag">Serum · 精華液</span>
               <h3>Repair Serum</h3>
-              <p class="list-product-name-zh">抗皺修護精華</p>
-              <div class="list-product-meta">
-                <span class="list-product-rating">★★★★★ <span class="num">4.8</span></span>
-                <span class="list-product-volume">30ml</span>
-              </div>
               <div class="list-product-footer">
                 <span class="list-product-price"><span class="currency">NT$</span>1,480</span>
                 <span class="list-product-link">View</span>
@@ -320,11 +299,6 @@
             <div class="list-product-body">
               <span class="list-product-tag">Cleanser · 潔顏</span>
               <h3>Gentle Cleanser</h3>
-              <p class="list-product-name-zh">溫和卸妝潔顏油</p>
-              <div class="list-product-meta">
-                <span class="list-product-rating">★★★★★ <span class="num">4.7</span></span>
-                <span class="list-product-volume">200ml</span>
-              </div>
               <div class="list-product-footer">
                 <span class="list-product-price"><span class="currency">NT$</span>980</span>
                 <span class="list-product-link">View</span>
@@ -341,11 +315,6 @@
             <div class="list-product-body">
               <span class="list-product-tag">Cream · 乳霜</span>
               <h3>Eye Cream</h3>
-              <p class="list-product-name-zh">眼周修護霜</p>
-              <div class="list-product-meta">
-                <span class="list-product-rating">★★★★★ <span class="num">4.9</span></span>
-                <span class="list-product-volume">20ml</span>
-              </div>
               <div class="list-product-footer">
                 <span class="list-product-price"><span class="currency">NT$</span>1,280</span>
                 <span class="list-product-link">View</span>
@@ -359,6 +328,8 @@
     </div>
   </section>
 
+
+  <div class="product-lightbox" id="productLightbox" aria-hidden="true"><button class="lightbox-backdrop" type="button" aria-label="關閉放大圖片"></button><div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="商品圖片預覽"><button class="lightbox-close" id="lightboxClose" type="button" aria-label="關閉">×</button><button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="上一張">‹</button><img id="lightboxImage" src="" alt=""><button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="下一張">›</button></div></div>
   <footer id="footer" class="footer-main">
     <div class="footer-top-container">
       <div class="footer-brand">
@@ -416,182 +387,11 @@
       
 
   <script>
-    // =========================================
-    // 1. 行動裝置側邊選單與下拉選單
-    // =========================================
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerDropdownToggle = document.getElementById('drawerDropdownToggle');
-    const drawerSubmenu = document.getElementById('drawerSubmenu');
-
-    if (menuToggle && mobileDrawer) {
-      menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        mobileDrawer.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
-      });
-    }
-
-    if (drawerDropdownToggle && drawerSubmenu) {
-      drawerDropdownToggle.addEventListener('click', () => {
-        drawerDropdownToggle.classList.toggle('active');
-        drawerSubmenu.classList.toggle('active');
-      });
-    }
-
-    // =========================================
-    // 2. 下方縮圖滑軌輪播與主圖連動 (修正後功能)
-    // =========================================
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    const mainImg = document.getElementById('mainImg');
-    const thumbTrack = document.getElementById('thumbTrack');
-    const thumbPrev = document.getElementById('thumbPrev');
-    const thumbNext = document.getElementById('thumbNext');
-    
-    let currentThumbIndex = 0; // 當前滑軌最左邊顯示的縮圖索引
-    const thumbsPerView = 3;   // 畫面上固定看見 3 張
-    const maxThumbIndex = Math.max(0, thumbnails.length - thumbsPerView); // 最大可滾動步數
-
-    // 更新縮圖滑軌位置與按鈕狀態
-    function updateThumbCarousel() {
-      if (!thumbnails.length || !thumbTrack) return;
-      
-      const gap = 12; // 對應 CSS 中的 gap
-      const width = thumbnails[0].offsetWidth;
-      
-      // 計算滑軌位移
-      thumbTrack.style.transform = `translateX(-${currentThumbIndex * (width + gap)}px)`;
-      
-      // 控制箭頭的停用狀態 (第一頁時左箭頭停用，最後一頁時右箭頭停用)
-      if (thumbPrev) thumbPrev.disabled = (currentThumbIndex === 0);
-      if (thumbNext) thumbNext.disabled = (currentThumbIndex === maxThumbIndex);
-    }
-
-    // 監聽點擊小縮圖 -> 更換主圖 (保留原有高亮切換)
-    thumbnails.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        mainImg.src = thumb.dataset.src;
-        thumbnails.forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-      });
-    });
-
-    // 點擊縮圖右箭頭 -> 往後滾動一張
-    if (thumbNext) {
-      thumbNext.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (currentThumbIndex < maxThumbIndex) {
-          currentThumbIndex++;
-          updateThumbCarousel();
-        }
-      });
-    }
-
-    // 點擊縮圖左箭頭 -> 往前滾動一張
-    if (thumbPrev) {
-      thumbPrev.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (currentThumbIndex > 0) {
-          currentThumbIndex--;
-          updateThumbCarousel();
-        }
-      });
-    }
-
-    // 初始化縮圖按鈕狀態
-    updateThumbCarousel();
-
-    // 視窗縮放時重新計算寬度，確保對齊
-    window.addEventListener('resize', () => {
-      updateThumbCarousel();
-    });
-
-    // =========================================
-    // 3. 商品購買數量加減計數器
-    // =========================================
-    let qty = 1;
-    const qtyNum = document.getElementById('qtyNum');
-    const qtyMinus = document.getElementById('qtyMinus');
-    const qtyPlus = document.getElementById('qtyPlus');
-
-    if (qtyMinus && qtyNum) {
-      qtyMinus.addEventListener('click', () => {
-        if (qty > 1) { qty--; qtyNum.textContent = qty; }
-      });
-    }
-    
-    if (qtyPlus && qtyNum) {
-      qtyPlus.addEventListener('click', () => {
-        qty++; qtyNum.textContent = qty;
-      });
-    }
-
-    // =========================================
-    // 4. 單品願望清單收藏按鈕 (大按鈕)
-    // =========================================
-    const wishBtn = document.querySelector('.btn-wishlist');
-    if (wishBtn) {
-      wishBtn.addEventListener('click', () => {
-        wishBtn.classList.toggle('active');
-        wishBtn.textContent = wishBtn.classList.contains('active') ? '♥' : '♡';
-      });
-    }
-
-    // =========================================
-    // 5. 推薦商品卡片內小愛心收藏按鈕
-    // =========================================
-    document.querySelectorAll('.list-product-fav').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
-        btn.style.color = btn.textContent === '♥' ? 'var(--accent)' : '';
-      });
-    });
-
-    // =========================================
-    // 6. 底部「你可能也會喜歡」推薦商品橫向輪播
-    // =========================================
-    const slider = document.getElementById('recommendSlider');
-    if (slider) {
-      const track = slider.querySelector('.recommend-track');
-      const prevBtn = document.querySelector('.carousel-btn-prev');
-      const nextBtn = document.querySelector('.carousel-btn-next');
-      const cards = track.querySelectorAll('.list-product-card');
-      let currentIndex = 0;
-
-      function getPerView() {
-        return window.innerWidth <= 640 ? 1 : window.innerWidth <= 960 ? 2 : 3;
-      }
-
-      function getMaxIndex() {
-        return Math.max(0, cards.length - getPerView());
-      }
-
-      function updateCarousel() {
-        if (!cards.length) return;
-        const gap = 16;
-        const width = cards[0].offsetWidth;
-        track.style.transform = `translateX(-${currentIndex * (width + gap)}px)`;
-      }
-
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          if (currentIndex < getMaxIndex()) { currentIndex++; updateCarousel(); }
-        });
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          if (currentIndex > 0) { currentIndex--; updateCarousel(); }
-        });
-      }
-
-      window.addEventListener('resize', () => {
-        currentIndex = Math.min(currentIndex, getMaxIndex());
-        updateCarousel();
-      });
-    }
+const menuToggle=document.getElementById('menuToggle'),mobileDrawer=document.getElementById('mobileDrawer'),drawerDropdownToggle=document.getElementById('drawerDropdownToggle'),drawerSubmenu=document.getElementById('drawerSubmenu');menuToggle?.addEventListener('click',()=>{menuToggle.classList.toggle('active');mobileDrawer?.classList.toggle('active');document.body.classList.toggle('drawer-open',menuToggle.classList.contains('active'));menuToggle.setAttribute('aria-expanded',String(menuToggle.classList.contains('active')))});drawerDropdownToggle?.addEventListener('click',()=>{drawerDropdownToggle.classList.toggle('active');drawerSubmenu?.classList.toggle('active')});
+const thumbnails=[...document.querySelectorAll('.thumbnail-track .thumbnail')],mainImg=document.getElementById('mainImg'),mainImageButton=document.getElementById('mainImageButton'),thumbTrack=document.getElementById('thumbTrack'),thumbPrev=document.getElementById('thumbPrev'),thumbNext=document.getElementById('thumbNext'),productLightbox=document.getElementById('productLightbox'),lightboxImage=document.getElementById('lightboxImage'),lightboxClose=document.getElementById('lightboxClose'),lightboxPrev=document.getElementById('lightboxPrev'),lightboxNext=document.getElementById('lightboxNext'),lightboxBackdrop=productLightbox?.querySelector('.lightbox-backdrop');let currentImageIndex=0,currentThumbOffset=0;const thumbsPerView=3,maxThumbOffset=()=>Math.max(0,thumbnails.length-thumbsPerView);function updateThumbs(){if(!thumbTrack||!thumbnails.length)return;const gap=parseFloat(getComputedStyle(thumbTrack).gap)||12,width=thumbnails[0].getBoundingClientRect().width;currentThumbOffset=Math.min(currentThumbOffset,maxThumbOffset());thumbTrack.style.transform=`translateX(-${currentThumbOffset*(width+gap)}px)`;if(thumbPrev)thumbPrev.disabled=currentThumbOffset<=0;if(thumbNext)thumbNext.disabled=currentThumbOffset>=maxThumbOffset()}function showImage(index){if(!thumbnails.length||!mainImg)return;currentImageIndex=(index+thumbnails.length)%thumbnails.length;const active=thumbnails[currentImageIndex];mainImg.src=active.dataset.src||active.src;mainImg.alt=active.alt;thumbnails.forEach((t,i)=>t.classList.toggle('active',i===currentImageIndex));if(currentImageIndex<currentThumbOffset)currentThumbOffset=currentImageIndex;else if(currentImageIndex>=currentThumbOffset+thumbsPerView)currentThumbOffset=currentImageIndex-thumbsPerView+1;updateThumbs();if(productLightbox?.classList.contains('active')){lightboxImage.src=mainImg.src;lightboxImage.alt=mainImg.alt}}thumbnails.forEach((t,i)=>t.addEventListener('click',()=>showImage(i)));thumbPrev?.addEventListener('click',e=>{e.preventDefault();currentThumbOffset=Math.max(0,currentThumbOffset-1);updateThumbs()});thumbNext?.addEventListener('click',e=>{e.preventDefault();currentThumbOffset=Math.min(maxThumbOffset(),currentThumbOffset+1);updateThumbs()});function openLightbox(){if(!mainImg||!productLightbox)return;lightboxImage.src=mainImg.src;lightboxImage.alt=mainImg.alt;productLightbox.classList.add('active');productLightbox.setAttribute('aria-hidden','false');document.body.classList.add('lightbox-open')}function closeLightbox(){productLightbox?.classList.remove('active');productLightbox?.setAttribute('aria-hidden','true');document.body.classList.remove('lightbox-open')}mainImageButton?.addEventListener('click',openLightbox);lightboxClose?.addEventListener('click',closeLightbox);lightboxBackdrop?.addEventListener('click',closeLightbox);lightboxPrev?.addEventListener('click',()=>showImage(currentImageIndex-1));lightboxNext?.addEventListener('click',()=>showImage(currentImageIndex+1));document.addEventListener('keydown',e=>{if(!productLightbox?.classList.contains('active'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')showImage(currentImageIndex-1);if(e.key==='ArrowRight')showImage(currentImageIndex+1)});showImage(0);window.addEventListener('resize',updateThumbs);
+document.querySelectorAll('.variant-chip').forEach(b=>b.addEventListener('click',()=>{if(b.disabled)return;document.querySelectorAll('.variant-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));let qty=1;const qtyNum=document.getElementById('qtyNum');document.getElementById('qtyMinus')?.addEventListener('click',()=>{qty=Math.max(1,qty-1);if(qtyNum)qtyNum.textContent=qty});document.getElementById('qtyPlus')?.addEventListener('click',()=>{qty++;if(qtyNum)qtyNum.textContent=qty});document.querySelector('.btn-wishlist')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('active');e.currentTarget.textContent=e.currentTarget.classList.contains('active')?'♥':'♡'});
+const slider=document.getElementById('recommendSlider');if(slider){const track=slider.querySelector('.recommend-track'),cards=[...track.querySelectorAll('.list-product-card')],prevBtn=document.querySelector('.carousel-btn-prev'),nextBtn=document.querySelector('.carousel-btn-next');let currentIndex=0;const touch=()=>matchMedia('(max-width:960px)').matches,gap=()=>parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap)||18,step=()=>cards[0]?cards[0].getBoundingClientRect().width+gap():0,maxOffset=()=>Math.max(0,track.scrollWidth-slider.clientWidth),maxIndex=()=>step()?Math.ceil(maxOffset()/step()):0;function update(){if(touch()){currentIndex=0;track.style.transform='none';return}const offset=Math.min(currentIndex*step(),maxOffset());track.style.transform=`translateX(-${offset}px)`;if(prevBtn)prevBtn.disabled=offset<=0;if(nextBtn)nextBtn.disabled=offset>=maxOffset()-1}prevBtn?.addEventListener('click',()=>{currentIndex=Math.max(0,currentIndex-1);update()});nextBtn?.addEventListener('click',()=>{currentIndex=Math.min(maxIndex(),currentIndex+1);update()});addEventListener('resize',()=>{currentIndex=Math.min(currentIndex,maxIndex());update()});addEventListener('load',update);update()}
   </script>
+  <script src="../assets/js/theme-switcher.js"></script>
 </body>
 </html>
