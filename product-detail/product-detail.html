@@ -388,7 +388,113 @@
 
   <script>
 const menuToggle=document.getElementById('menuToggle'),mobileDrawer=document.getElementById('mobileDrawer'),drawerDropdownToggle=document.getElementById('drawerDropdownToggle'),drawerSubmenu=document.getElementById('drawerSubmenu');menuToggle?.addEventListener('click',()=>{menuToggle.classList.toggle('active');mobileDrawer?.classList.toggle('active');document.body.classList.toggle('drawer-open',menuToggle.classList.contains('active'));menuToggle.setAttribute('aria-expanded',String(menuToggle.classList.contains('active')))});drawerDropdownToggle?.addEventListener('click',()=>{drawerDropdownToggle.classList.toggle('active');drawerSubmenu?.classList.toggle('active')});
-const thumbnails=[...document.querySelectorAll('.thumbnail-track .thumbnail')],mainImg=document.getElementById('mainImg'),mainImageButton=document.getElementById('mainImageButton'),thumbTrack=document.getElementById('thumbTrack'),thumbPrev=document.getElementById('thumbPrev'),thumbNext=document.getElementById('thumbNext'),productLightbox=document.getElementById('productLightbox'),lightboxImage=document.getElementById('lightboxImage'),lightboxClose=document.getElementById('lightboxClose'),lightboxPrev=document.getElementById('lightboxPrev'),lightboxNext=document.getElementById('lightboxNext'),lightboxBackdrop=productLightbox?.querySelector('.lightbox-backdrop');let currentImageIndex=0,currentThumbOffset=0;const thumbsPerView=3,maxThumbOffset=()=>Math.max(0,thumbnails.length-thumbsPerView);function updateThumbs(){if(!thumbTrack||!thumbnails.length)return;const gap=parseFloat(getComputedStyle(thumbTrack).gap)||12,width=thumbnails[0].getBoundingClientRect().width;currentThumbOffset=Math.min(currentThumbOffset,maxThumbOffset());thumbTrack.style.transform=`translateX(-${currentThumbOffset*(width+gap)}px)`;if(thumbPrev)thumbPrev.disabled=currentThumbOffset<=0;if(thumbNext)thumbNext.disabled=currentThumbOffset>=maxThumbOffset()}function showImage(index){if(!thumbnails.length||!mainImg)return;currentImageIndex=(index+thumbnails.length)%thumbnails.length;const active=thumbnails[currentImageIndex];mainImg.src=active.dataset.src||active.src;mainImg.alt=active.alt;thumbnails.forEach((t,i)=>t.classList.toggle('active',i===currentImageIndex));if(currentImageIndex<currentThumbOffset)currentThumbOffset=currentImageIndex;else if(currentImageIndex>=currentThumbOffset+thumbsPerView)currentThumbOffset=currentImageIndex-thumbsPerView+1;updateThumbs();if(productLightbox?.classList.contains('active')){lightboxImage.src=mainImg.src;lightboxImage.alt=mainImg.alt}}thumbnails.forEach((t,i)=>t.addEventListener('click',()=>showImage(i)));thumbPrev?.addEventListener('click',e=>{e.preventDefault();currentThumbOffset=Math.max(0,currentThumbOffset-1);updateThumbs()});thumbNext?.addEventListener('click',e=>{e.preventDefault();currentThumbOffset=Math.min(maxThumbOffset(),currentThumbOffset+1);updateThumbs()});function openLightbox(){if(!mainImg||!productLightbox)return;lightboxImage.src=mainImg.src;lightboxImage.alt=mainImg.alt;productLightbox.classList.add('active');productLightbox.setAttribute('aria-hidden','false');document.body.classList.add('lightbox-open')}function closeLightbox(){productLightbox?.classList.remove('active');productLightbox?.setAttribute('aria-hidden','true');document.body.classList.remove('lightbox-open')}mainImageButton?.addEventListener('click',openLightbox);lightboxClose?.addEventListener('click',closeLightbox);lightboxBackdrop?.addEventListener('click',closeLightbox);lightboxPrev?.addEventListener('click',()=>showImage(currentImageIndex-1));lightboxNext?.addEventListener('click',()=>showImage(currentImageIndex+1));document.addEventListener('keydown',e=>{if(!productLightbox?.classList.contains('active'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')showImage(currentImageIndex-1);if(e.key==='ArrowRight')showImage(currentImageIndex+1)});showImage(0);window.addEventListener('resize',updateThumbs);
+const thumbnails=[...document.querySelectorAll('.thumbnail-track .thumbnail')],
+mainImg=document.getElementById('mainImg'),
+mainImageButton=document.getElementById('mainImageButton'),
+thumbTrack=document.getElementById('thumbTrack'),
+thumbPrev=document.getElementById('thumbPrev'),
+thumbNext=document.getElementById('thumbNext'),
+productLightbox=document.getElementById('productLightbox'),
+lightboxImage=document.getElementById('lightboxImage'),
+lightboxClose=document.getElementById('lightboxClose'),
+lightboxPrev=document.getElementById('lightboxPrev'),
+lightboxNext=document.getElementById('lightboxNext'),
+lightboxBackdrop=productLightbox?.querySelector('.lightbox-backdrop');
+
+let currentImageIndex=0;
+let currentThumbOffset=0;
+
+const thumbsPerView=3;
+const maxThumbOffset=()=>Math.max(0,thumbnails.length-thumbsPerView);
+
+function updateThumbs(){
+  if(!thumbTrack||!thumbnails.length)return;
+  const gap=parseFloat(getComputedStyle(thumbTrack).gap)||12;
+  const width=thumbnails[0].getBoundingClientRect().width;
+  currentThumbOffset=Math.max(0,Math.min(currentThumbOffset,maxThumbOffset()));
+  thumbTrack.style.transform=`translateX(-${currentThumbOffset*(width+gap)}px)`;
+  if(thumbPrev)thumbPrev.disabled=currentImageIndex<=0;
+  if(thumbNext)thumbNext.disabled=currentImageIndex>=thumbnails.length-1;
+}
+
+function showImage(index){
+  if(!thumbnails.length||!mainImg)return;
+
+  currentImageIndex=(index+thumbnails.length)%thumbnails.length;
+  const active=thumbnails[currentImageIndex];
+
+  mainImg.src=active.dataset.src||active.src;
+  mainImg.alt=active.alt;
+
+  thumbnails.forEach((thumb,i)=>{
+    thumb.classList.toggle('active',i===currentImageIndex);
+  });
+
+  // 讓目前選中的縮圖盡量維持在可視區中央
+  const centerSlot = Math.floor(thumbsPerView / 2);
+  currentThumbOffset = Math.max(
+    0,
+    Math.min(currentImageIndex - centerSlot, maxThumbOffset())
+  );
+
+  updateThumbs();
+
+  if(productLightbox?.classList.contains('active')){
+    lightboxImage.src=mainImg.src;
+    lightboxImage.alt=mainImg.alt;
+  }
+}
+
+thumbnails.forEach((thumb,index)=>{
+  thumb.addEventListener('click',()=>showImage(index));
+});
+
+thumbPrev?.addEventListener('click',(event)=>{
+  event.preventDefault();
+  showImage(currentImageIndex-1);
+});
+
+thumbNext?.addEventListener('click',(event)=>{
+  event.preventDefault();
+  showImage(currentImageIndex+1);
+});
+
+function openLightbox(){
+  if(!mainImg||!productLightbox)return;
+  lightboxImage.src=mainImg.src;
+  lightboxImage.alt=mainImg.alt;
+  productLightbox.classList.add('active');
+  productLightbox.setAttribute('aria-hidden','false');
+  document.body.classList.add('lightbox-open');
+}
+
+function closeLightbox(){
+  productLightbox?.classList.remove('active');
+  productLightbox?.setAttribute('aria-hidden','true');
+  document.body.classList.remove('lightbox-open');
+}
+
+mainImageButton?.addEventListener('click',openLightbox);
+mainImageButton?.addEventListener('keydown',(event)=>{
+  if(event.key==='Enter'||event.key===' '){
+    event.preventDefault();
+    openLightbox();
+  }
+});
+lightboxClose?.addEventListener('click',closeLightbox);
+lightboxBackdrop?.addEventListener('click',closeLightbox);
+lightboxPrev?.addEventListener('click',()=>showImage(currentImageIndex-1));
+lightboxNext?.addEventListener('click',()=>showImage(currentImageIndex+1));
+
+document.addEventListener('keydown',(event)=>{
+  if(!productLightbox?.classList.contains('active'))return;
+  if(event.key==='Escape')closeLightbox();
+  if(event.key==='ArrowLeft')showImage(currentImageIndex-1);
+  if(event.key==='ArrowRight')showImage(currentImageIndex+1);
+});
+
+showImage(0);
+window.addEventListener('resize',updateThumbs);
 document.querySelectorAll('.variant-chip').forEach(b=>b.addEventListener('click',()=>{if(b.disabled)return;document.querySelectorAll('.variant-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));let qty=1;const qtyNum=document.getElementById('qtyNum');document.getElementById('qtyMinus')?.addEventListener('click',()=>{qty=Math.max(1,qty-1);if(qtyNum)qtyNum.textContent=qty});document.getElementById('qtyPlus')?.addEventListener('click',()=>{qty++;if(qtyNum)qtyNum.textContent=qty});document.querySelector('.btn-wishlist')?.addEventListener('click',e=>{e.currentTarget.classList.toggle('active');e.currentTarget.textContent=e.currentTarget.classList.contains('active')?'♥':'♡'});
 const slider=document.getElementById('recommendSlider');if(slider){const track=slider.querySelector('.recommend-track'),cards=[...track.querySelectorAll('.list-product-card')],prevBtn=document.querySelector('.carousel-btn-prev'),nextBtn=document.querySelector('.carousel-btn-next');let currentIndex=0;const touch=()=>matchMedia('(max-width:960px)').matches,gap=()=>parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap)||18,step=()=>cards[0]?cards[0].getBoundingClientRect().width+gap():0,maxOffset=()=>Math.max(0,track.scrollWidth-slider.clientWidth),maxIndex=()=>step()?Math.ceil(maxOffset()/step()):0;function update(){if(touch()){currentIndex=0;track.style.transform='none';return}const offset=Math.min(currentIndex*step(),maxOffset());track.style.transform=`translateX(-${offset}px)`;if(prevBtn)prevBtn.disabled=offset<=0;if(nextBtn)nextBtn.disabled=offset>=maxOffset()-1}prevBtn?.addEventListener('click',()=>{currentIndex=Math.max(0,currentIndex-1);update()});nextBtn?.addEventListener('click',()=>{currentIndex=Math.min(maxIndex(),currentIndex+1);update()});addEventListener('resize',()=>{currentIndex=Math.min(currentIndex,maxIndex());update()});addEventListener('load',update);update()}
   </script>
